@@ -1,13 +1,16 @@
 import React from 'react';
 import createStore from './store';
 import { Provider } from 'react-redux';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { ToastContainer } from 'react-toastify';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from './components/Header';
+//import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import NowWhat from './components/NowWhat';
+import GraphHooks from './components/graphHooks'
+//import NowWhat from './components/NowWhat';
+import { apiCall } from './Utility/GraphAPI'
 
 const store = createStore();
 const theme = createMuiTheme({
@@ -28,11 +31,12 @@ const App = () => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
     <Provider store={store}>
+      <ApolloProvider client = {apiCall}>
       <Wrapper>
-        <Header />
-        <NowWhat />
+       <GraphHooks />
         <ToastContainer />
       </Wrapper>
+      </ApolloProvider>
     </Provider>
   </MuiThemeProvider>
 );
