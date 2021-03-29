@@ -15,15 +15,16 @@ import { apiCall } from './Utility/GraphAPI'
 const store = createStore();
 const theme = createMuiTheme({
   palette: {
+    background: {
+      default: 'rgb(226,231,238)',
+    },
     primary: {
       main: 'rgb(39,49,66)',
     },
     secondary: {
       main: 'rgb(197,208,222)',
     },
-    background: {
-      default: 'rgb(226,231,238)',
-    },
+    
   },
 });
 
