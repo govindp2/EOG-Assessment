@@ -28,7 +28,7 @@ const Header = (props: HeaderProps) =>{
                 <Grid item xs ={12} sm={6}>
                     {props.latestData.map( valueData => {
                         return props.selection.includes(valueData.metric) ? (
-                            <MetricCard key={valueData.metric} metricName = {valueData.metric} metricValue = {valueData.value} />
+                            <MetricCard key={`${valueData.metric}: ${valueData.value}`} measurement={valueData} />
                         ): null;
                     } )}
                 </Grid>
