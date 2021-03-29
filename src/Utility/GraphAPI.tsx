@@ -6,6 +6,10 @@ import { getMainDefinition } from 'apollo-utilities';
 import { HttpLink } from 'apollo-link-http';
 import { WebSocketLink } from 'apollo-link-ws';
 
+
+
+const url = new HttpLink({ uri: 'https://react.eogresources.com/graphql' });
+
 const webURL = new WebSocketLink({
     uri: 'ws://react.eogresources.com/graphql',
     options: {
@@ -13,7 +17,6 @@ const webURL = new WebSocketLink({
     },
 });
 
-const url = new HttpLink({ uri: 'https://react.eogresources.com/graphql' });
 
 let link = ApolloLink.from([
     onError(({ graphQLErrors, networkError }) => {
